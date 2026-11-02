@@ -1,9 +1,9 @@
 #pragma once
-#include "../../CommonDef.h"
-#include "../../xOpenCL_Common.h"
+#include "../../lib_base/CommonDef.h"
+#include "../../lib_OpelCL/xOpenCL_Common.h"
 #include <CL/opencl.hpp>
 #include <array>
-#include "../../xPic.h"
+#include "../../lib_base/xPic.h"
 #include "xPSNR.h"
 //===============================================================================================================================================================================================================
 

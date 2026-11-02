@@ -1,11 +1,11 @@
 #pragma once
-#include "../../CommonDef.h"
-#include "../../xOpenCL_Common.h"
-#include "../../xPic.h"
+#include "../../lib_base/CommonDef.h"
+#include "../../lib_OpelCL/xOpenCL_Common.h"
+#include "../../lib_base/xPic.h"
 #include <array>
 #include <cmath>
 #include <vector>
-#include "../../xPixelOps.h"
+#include "../../lib_base/xPixelOps.h"
 #include <mdspan>
 
 class xSSIM {

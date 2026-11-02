@@ -3,7 +3,7 @@
 #include <CL/opencl.hpp>
 #include <array>
 #include <string>
-#include "../../xFile.h"
+#include "../../lib_base/xFile.h"
 #include "filesystem"
 
 class xSSIM_OpenCl : xSSIM {

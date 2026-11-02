@@ -53,11 +53,24 @@
 #include "xSeq.h"
 #include "./Metrics/PSNR/xPSNR.h"
 #include "xPrintStats.h"
+#include "xApp.h"
 #include "Metrics/IVPreProcessing/xIVPreProcessing.h"
 
 //===============================================================================================================================================================================================================
+
+
 int32 main(int argc, char *argv[]) {
   xOpenCL_Enumerator OpenCL;
+
+  xApp::CommandLineOptions commandLine;
+  std::string parseError;
+  if (!xApp::parseCommandLine(std::vector<std::string>(argv, argv + argc), commandLine, parseError)) {
+    if (!parseError.empty()) {
+      fmt::printf("%s\n", parseError);
+      xApp::printUsage(argv[0]);
+    }
+    return EXIT_FAILURE;
+  }
 
   OpenCL.queryAllData();
   std::string ResultStr = OpenCL.printAllData(false);
@@ -65,10 +78,10 @@ int32 main(int argc, char *argv[]) {
   //return EXIT_SUCCESS;
   
   //readed from commandline/config
-  std::string RefFile        = "Materials/A97_SL_QP1_TT_v0_1920x1080_yuv420p10le.yuv";
-  std::string TestFile       = "Materials/A97_SL_QP2_TT_v0_1920x1080_yuv420p10le.yuv";
-  std::string PSNRKernelsFile     = "Metrics/PSNR/kernels.cl";
-  std::string SSIMKernelsFile    = "Metrics/SSIM/SSIMkernels.cl";
+  std::string RefFile         = "../Materials/A97_SL_QP1_TT_v0_1920x1080_yuv420p10le.yuv";
+  std::string TestFile        = "../Materials/A97_SL_QP2_TT_v0_1920x1080_yuv420p10le.yuv";
+  std::string PSNRKernelsFile = "Metrics/PSNR/kernels.cl";
+  std::string SSIMKernelsFile = "Metrics/SSIM/SSIMkernels.cl";
   int32       PictureWidth    = 1920;
   int32       PictureHeight   = 1080;
   int32       BitDepth        = 8   ;  
@@ -124,7 +137,6 @@ int32 main(int argc, char *argv[]) {
     fmt::printf("BitDepth        = %d\n", BitDepth         );
     fmt::printf("ChromaFormat    = %d\n", ChromaFormat     );
     fmt::printf("NumberOfFrames  = %d%s\n", NumberOfFrames, NumberOfFrames==NOT_VALID ? "  (all)" : "");
-    //fmt::printf("NumberOfThreads = %d%s\n", FinalNumberOfThreads, NumberOfThreads == NOT_VALID ? "  (all)" : "");
     fmt::printf("VerboseLevel    = %d\n", VerboseLevel     );
     fmt::printf("Block Size SSIM = %d\n", BlockSize);
     fmt::printf("\n");

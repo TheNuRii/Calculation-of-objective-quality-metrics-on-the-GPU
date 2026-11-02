@@ -1,6 +1,6 @@
 #pragma once
-#include "../../CommonDef.h"
-#include "../../xPic.h"
+#include "../../lib_base/CommonDef.h"
+#include "../../lib_base/xPic.h"
 #include <array>
 
 class xIVPreProcessing {

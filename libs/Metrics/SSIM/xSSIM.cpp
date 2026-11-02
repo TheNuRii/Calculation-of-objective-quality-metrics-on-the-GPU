@@ -5,7 +5,7 @@ bool xSSIM::create(int32 Width, int32 Height, int32 Margin,
 
     m_Width     = Width;
     m_Height    = Height;
-    m_Margin    = Margin; // tyle by zabezpieczycz blok 11 x 11 na krancu obrazu
+    m_Margin    = Margin; // tyle by zabezpieczycz blok 8 x 8 na krancu obrazu
     m_Stride    = m_Width + (m_Margin << 1);
     m_BitDepth  = BitDepth;
     m_BlockSize = BlockSize;

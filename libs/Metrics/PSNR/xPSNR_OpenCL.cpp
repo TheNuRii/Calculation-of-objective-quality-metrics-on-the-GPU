@@ -1,8 +1,8 @@
 #include "xPSNR_OpenCL.h"
-#include "../../CommonDef.h"
+#include "../../lib_base/CommonDef.h"
 #include "../../lib_fmt/printf.h"
-#include "../../xFile.h"
-#include "../../xPic.h"
+#include "../../lib_base/xFile.h"
+#include "../../lib_base/xPic.h"
 #include <CL/cl.h>
 #include <CL/cl_platform.h>
 #include <CL/opencl.hpp>
